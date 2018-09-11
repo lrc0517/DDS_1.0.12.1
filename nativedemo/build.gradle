@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+def AAVersion = '4.3.1'
+
+def Properties props = new Properties()
+def propFile = file('../../version.properties')   //pay attention to the path
+def sdk_version
+if (propFile.canRead()) {
+    props.load(new FileInputStream(propFile))
+
+    if (props != null && props.containsKey('version.name')) {
+        sdk_version = props['version.name']
+        println sdk_version
+    }
+}
+
+android {
+
+    signingConfigs {
+        pro {
+            keyAlias 'keymorui'
+            keyPassword 'mr.123'
+            storeFile file('E:/APKSIGN/mrsign.jks')
+            storePassword 'mr.123'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.pro
+            jniDebuggable true
+            renderscriptDebuggable true
+        }
+        release {
+            debuggable true
+            signingConfig signingConfigs.pro
+            jniDebuggable true
+            renderscriptDebuggable true
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.ai.xiaocai"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'//, 'x86', , 'x86_64'
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.pro
+    }
+
+
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs'//this way we can find the .aar file in libs folder
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation(name: 'lib-dds-1.0.12.1-release', ext: 'aar')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26+'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:recyclerview-v7:26+'
+    implementation 'com.airbnb.android:lottie:2.0.0'
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+    implementation 'com.facebook.fresco:fresco:1.5.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    def htextview_version = "0.1.2"
+    implementation "com.hanks:htextview-base:$htextview_version"
+    implementation "com.hanks:htextview-typer:$htextview_version"
+}

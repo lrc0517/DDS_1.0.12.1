@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="chat_tips">
+        <item>@string/chat_tips_0</item>
+        <item>@string/chat_tips_1</item>
+        <item>@string/chat_tips_2</item>
+        <item>@string/chat_tips_3</item>
+        <item>@string/chat_tips_4</item>
+    </string-array>
+
+    <string-array name="not_hear_tips">
+        <item>@string/not_hear_tips_0</item>
+        <item>@string/not_hear_tips_1</item>
+    </string-array>
+
+
+    <string-array name="sleep_tips">
+        <item>@string/sleep_tips_0</item>
+        <item>@string/sleep_tips_1</item>
+    </string-array>
+
+    <string-array name="wakeup_tips">
+        <item>@string/wake_tips_0</item>
+        <item>@string/wake_tips_1</item>
+    </string-array>
+
+    <string-array name="other_chat_tips">
+        <item>@string/other_chat_tips_0</item>
+        <item>@string/other_chat_tips_1</item>
+    </string-array>
+
+    <string name="chat_tips_0">主人，我嗓子都哑了。</string>
+    <string name="chat_tips_1">本精灵嗓子不舒服，不能唱高音。</string>
+    <string name="chat_tips_2">主人，会吵到邻居哟。</string>
+    <string name="chat_tips_3">哼，本精灵做不到。</string>
+    <string name="chat_tips_4">你先吼吼试试？</string>
+    <string name="wake_tips_0">主人，我在哦。有事请呼叫小采。</string>
+    <string name="wake_tips_1">主人，呼叫小采，我们就可以开始聊天了。</string>
+    <string name="sleep_tips_0">再见~</string>
+    <string name="sleep_tips_1">拜拜~</string>
+    <string name="other_chat_tips_0">可能我昨天吃鸡太多，竟然没听懂你的问题</string>
+    <string name="other_chat_tips_1">我是生命之光智能科技生产的哦</string>
+    <string name="not_hear_tips_0">请再说一次好吗？本精灵没有听清</string>
+    <string name="not_hear_tips_1">没听清楚，再说一遍好吗。</string>
+</resources>
